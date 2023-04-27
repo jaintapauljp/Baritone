@@ -63,7 +63,11 @@ public final class InputOverrideHandler extends Behavior implements IInputOverri
     public final Boolean isInputForcedDown(KeyBinding key) {
         Input input = Input.getInputForBind(key);
         if (input == null || !inControl()) {
-            return null;
+            
+			/* ********OpenRefactory Warning********
+			 Returning null from method isInputForcedDown that returns a Boolean
+			*/
+			return null;
         }
         if (input == Input.CLICK_LEFT) {
             return false;
@@ -71,7 +75,10 @@ public final class InputOverrideHandler extends Behavior implements IInputOverri
         if (input == Input.CLICK_RIGHT) {
             return isInputForcedDown(Input.CLICK_RIGHT);
         }
-        return null;
+        /* ********OpenRefactory Warning********
+		 Returning null from method isInputForcedDown that returns a Boolean
+		*/
+		return null;
     }
 
     /**
